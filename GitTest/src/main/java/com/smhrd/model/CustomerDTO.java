@@ -1,107 +1,103 @@
 package com.smhrd.model;
 
 public class CustomerDTO {
-    private String cust_id;
-    private String cust_pw;
-    private String cust_nick;
-    private String cust_email;
-    private String cust_gender;
-    private String cust_birthdate;
-    private String cust_addr;
-    private String cust_phone;
-    
+    private String custId;
+    private String custPw;
+    private String custNick;
+    private String custEmail;
+    private String custGender;
+    private String custBirthdate;
+    private String custAddr;
+    private String custPhone;
+    public String getCustId() {
+      return custId;
+   }
 
-	
+   public void setCustId(String custId) {
+      this.custId = custId;
+   }
 
-	public String getCust_id() {
-		return cust_id;
-	}
+   public String getCustPw() {
+      return custPw;
+   }
 
-	public void setCust_id(String cust_id) {
-		this.cust_id = cust_id;
-	}
+   public void setCustPw(String custPw) {
+      this.custPw = custPw;
+   }
 
-	public String getCust_pw() {
-		return cust_pw;
-	}
+   public String getCustNick() {
+      return custNick;
+   }
 
-	public void setCust_pw(String cust_pw) {
-		this.cust_pw = cust_pw;
-	}
+   public void setCustNick(String custNick) {
+      this.custNick = custNick;
+   }
 
-	public String getCust_nick() {
-		return cust_nick;
-	}
+   public String getCustEmail() {
+      return custEmail;
+   }
 
-	public void setCust_nick(String cust_nick) {
-		this.cust_nick = cust_nick;
-	}
+   public void setCustEmail(String custEmail) {
+      this.custEmail = custEmail;
+   }
 
-	public String getCust_email() {
-		return cust_email;
-	}
+   public String getCustGender() {
+      return custGender;
+   }
 
-	public void setCust_email(String cust_email) {
-		this.cust_email = cust_email;
-	}
+   public void setCustGender(String custGender) {
+      this.custGender = custGender;
+   }
 
-	public String getCust_gender() {
-		return cust_gender;
-	}
+   public String getCustBirthdate() {
+      return custBirthdate;
+   }
 
-	public void setCust_gender(String cust_gender) {
-		this.cust_gender = cust_gender;
-	}
+   public void setCustBirthdate(String custBirthdate) {
+      this.custBirthdate = custBirthdate;
+   }
 
-	public String getCust_birthdate() {
-		return cust_birthdate;
-	}
+   public String getCustAddr() {
+      return custAddr;
+   }
 
-	public void setCust_birthdate(String cust_birthdate) {
-		this.cust_birthdate = cust_birthdate;
-	}
+   public void setCustAddr(String custAddr) {
+      this.custAddr = custAddr;
+   }
 
-	public String getCust_addr() {
-		return cust_addr;
-	}
+   public String getCustPhone() {
+      return custPhone;
+   }
 
-	public void setCust_addr(String cust_addr) {
-		this.cust_addr = cust_addr;
-	}
+   public void setCustPhone(String custPhone) {
+      this.custPhone = custPhone;
+   }
 
-	public String getCust_phone() {
-		return cust_phone;
-	}
+   public String getJoinedAt() {
+      return joinedAt;
+   }
 
-	public void setCust_phone(String cust_phone) {
-		this.cust_phone = cust_phone;
-	}
+   public void setJoinedAt(String joinedAt) {
+      this.joinedAt = joinedAt;
+   }
 
-	public String getJoinedAt() {
-		return joinedAt;
-	}
+   public double getLat() {
+      return lat;
+   }
 
-	public void setJoinedAt(String joinedAt) {
-		this.joinedAt = joinedAt;
-	}
+   public void setLat(double lat) {
+      this.lat = lat;
+   }
 
-	public double getLat() {
-		return lat;
-	}
+   public double getLon() {
+      return lon;
+   }
 
-	public void setLat(double lat) {
-		this.lat = lat;
-	}
+   public void setLon(double lon) {
+      this.lon = lon;
+   }
 
-	public double getLon() {
-		return lon;
-	}
-
-	public void setLon(double lon) {
-		this.lon = lon;
-	}
-
-	private String joinedAt;
+   private String joinedAt;
     private double lat;
     private double lon;
 
@@ -110,20 +106,20 @@ public class CustomerDTO {
 
     public CustomerDTO(String custId, String custPw, String custNick, String custEmail, String custGender,
             String custBirthdate, String custAddr, String custPhone, String joinedAt, double lat, double lon) {
-        this.cust_id = cust_id;
-        this.cust_pw = cust_pw;
-        this.cust_nick = cust_nick;
-        this.cust_email = cust_email;
-        this.cust_gender = cust_gender;
-        this.cust_birthdate = cust_birthdate;
-        this.cust_addr = cust_addr;
-        this.cust_phone = cust_phone;
+        this.custId = custId;
+        this.custPw = custPw;
+        this.custNick = custNick;
+        this.custEmail = custEmail;
+        this.custGender = custGender;
+        this.custBirthdate = custBirthdate;
+        this.custAddr = custAddr;
+        this.custPhone = custPhone;
         this.joinedAt = joinedAt;
         this.lat = lat;
         this.lon = lon;
     }
 
-	
+   
 
     // Getters and Setters
     // ...

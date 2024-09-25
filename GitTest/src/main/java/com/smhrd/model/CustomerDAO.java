@@ -3,36 +3,80 @@ package com.smhrd.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
+
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.smhrd.db.SqlSessionManager;
+
 public class CustomerDAO {
+	// 실제적으로 DB와 연결할 수 있는 파일! -> SqlSessionFactory 같이!
 
-    private DataSource dataSource;
+		SqlSessionFactory sqlSessionFactroy = SqlSessionManager.getFactory();
 
-    public CustomerDAO(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+		// 회원가입 기능
+		public int join(CustomerDTO dto) {
+			// 1. 회원가입을 하고자 하는 데이터 가지고 있어야한다! => 매개변수 사용!
 
-    public void insertCustomer(CustomerDTO customer) throws SQLException {
-        String sql = "INSERT INTO CUSTOMERS (CUST_ID, CUST_PW, CUST_NICK, CUST_EMAIL, CUST_GENDER, CUST_BIRTHDATE, CUST_ADDR, CUST_PHONE, JOINED_AT, LAT, LON) "
-                   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			// 2. db로 전달! -> sqlSession 대여 -> sql 문장 실행 -> sqlSession 반납
+			SqlSession sqlSession = sqlSessionFactroy.openSession(true);
 
-            pstmt.setString(1, customer.getCustId());
-            pstmt.setString(2, customer.getCustPw());
-            pstmt.setString(3, customer.getCustNick());
-            pstmt.setString(4, customer.getCustEmail());
-            pstmt.setString(5, customer.getCustGender());
-            pstmt.setString(6, customer.getCustBirthdate());
-            pstmt.setString(7, customer.getCustAddr());
-            pstmt.setString(8, customer.getCustPhone());
-            pstmt.setString(9, customer.getJoinedAt());
-            pstmt.setDouble(10, customer.getLat());
-            pstmt.setDouble(11, customer.getLon());
+			int cnt = sqlSession.insert("join", dto);
 
-            pstmt.executeUpdate();
-        }
-    }
+			// 3. db로부터 결과값 확인!
+			System.out.println("성공여부 : " + cnt);
+
+			sqlSession.close();
+
+			return cnt;
+
+		}
+
+		// 로그인 기능
+		public CustomerDTO login(CustomerDTO dto) {
+
+			SqlSession sqlSession = sqlSessionFactroy.openSession(true);
+
+			CustomerDTO result = sqlSession.selectOne("login", dto);
+
+			sqlSession.close();
+
+			return result;
+		}
+
+		// 전체 회원 조회 기능
+		public List<CustomerDTO> selectAll() {
+			// 1. sqlSession 빌려오기
+			SqlSession sqlSession = sqlSessionFactroy.openSession();
+
+			// 2. sqlSession을 사용하기 (select 여러개 값)
+			List<CustomerDTO> resultList = sqlSession.selectList("selectAll");
+			// memberDTO => 한명의 정보를 표현할 수 있는 type
+			// 여러명의 정보를 하나로 묶어서 표현해야 함
+			// 1) 객체 배열 2) ArrayList
+			// : 크기가 가변적인 ArrayList가 우리한테 적합함.
+			// : ArrayList의 부모 클래스 격인 List 형태로 리턴 받아오자!
+
+			// 3. sqlSession 반납
+			sqlSession.close();
+			// 4. 조회한 결과값 반환(return)
+			return resultList;
+		}
+
+		public int update(CustomerDTO dto) {
+			// 1. session 빌려오기
+			SqlSession sqlSession = sqlSessionFactroy.openSession(true);
+			// 2. session 사용하기 (sql구문 실행)
+			int row = sqlSession.update("update", dto);
+			// 3. session 반납하기
+			sqlSession.close();
+			// 4. 조회한 결과를 return 해주기
+			return row;
+
+		}
+	
+	
 }

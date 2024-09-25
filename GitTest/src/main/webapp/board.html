@@ -1486,7 +1486,7 @@
 							<li class="_1knjz49n"><a href="#"><img class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined"
 										src="./로고.png" alt="이미지 준비중입니다." width="46px" height="46px"></a></li>
 							<li class="_1knjz49n"><a class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined"
-									href="main.html">중고거래</a></li>
+									href="main.jsp">중고거래</a></li>
 							<li class="_1knjz49n"></li>
 							<li class="_1knjz49n"></li>
 							<li class="_1knjz49n"><a class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined"
@@ -1524,9 +1524,18 @@
 									<path fill-rule="evenodd" clip-rule="evenodd"
 										d="M3 19C3 18.6687 3.26863 18.4 3.6 18.4H20.4C20.7314 18.4 21 18.6687 21 19C21 19.3314 20.7314 19.6 20.4 19.6H3.6C3.26863 19.6 3 19.3314 3 19Z"
 										fill="#212124"></path>
-								</svg></button><button type="button"
-								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-								onclick="location.href='LoginJoin.html'">로그인</button></span>
+								</svg></button> <c:if test="${info==null}">
+								<button type="button"
+									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
+									onclick="location.href='LoginJoin.html'">로그인</button>
+							</c:if> <c:if test="${info !=null}">
+								<button type="button"
+									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
+									onclick="location.href='#'">개인정보수정</button>
+								<button type="button"
+									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
+									 onclick="window.location.href='LogoutService'">로그아웃</button>
+							</c:if> </span></span>
 					</div>
 				</div>
 			</div>

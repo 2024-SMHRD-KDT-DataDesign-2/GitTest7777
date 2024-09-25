@@ -40,11 +40,11 @@ public class JoinService extends HttpServlet {
 			// 회원가입 성공! -> 회원가입한 email 값을 가지고 페이지 이동
 			request.setAttribute("cust_id", cust_id);
 
-			RequestDispatcher rd = request.getRequestDispatcher("main.html");
+			RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
 			rd.forward(request, response);
 		} else {
 			// 회원가입 실패!
-			response.sendRedirect("LoginJoin.html");
+			response.sendRedirect("LoginJoin.jsp");
 		}
 
 	}

@@ -4030,12 +4030,12 @@ translateY(
 									class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" src="./로고.png"
 									alt="이미지 준비중입니다." width="46px" height="46px"></a></li>
 							<li class="_1knjz49n"><a
-								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.html">중고거래</a></li>
+								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.jsp">중고거래</a></li>
 							<li class="_1knjz49n"></li>
 							<li class="_1knjz49n"></li>
 							<li class="_1knjz49n"><a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined"
-								href="board.html">자유 게시판</a></li>
+								href="board.jsp">자유 게시판</a></li>
 						</ul>
 					</nav>
 					<div class="_1s38h9c1 _1s38h9c0">

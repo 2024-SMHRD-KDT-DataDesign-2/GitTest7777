@@ -1490,8 +1490,6 @@
 										src="./로고.png" alt="이미지 준비중입니다." width="46px" height="46px"></a></li>
 							<li class="_1knjz49n"><a class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined"
 									href="main.jsp">중고거래</a></li>
-							<li class="_1knjz49n"></li>
-							<li class="_1knjz49n"></li>
 							<li class="_1knjz49n"><a class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined"
 									href="board.jsp">자유
 									게시판</a></li>
@@ -1512,9 +1510,9 @@
 						<span><button type="button"
 								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
 								style="margin-right: 50px;">찾기</button></span>
-						<span><button type="button"
+						<span><c:if test="${info!=null}"><button type="button"
 								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-								style="margin-right: 50px;">게시판 등록</button></span>
+								style="margin-right: 50px;">게시판 등록</button></c:if></span>
 
 						<span><button class="_1knjz495 _1s38h9c3 _1s38h9c0 _1s38h9c2"><svg width="24" height="24"
 									viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

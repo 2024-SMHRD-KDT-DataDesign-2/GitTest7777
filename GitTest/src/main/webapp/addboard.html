@@ -5698,70 +5698,66 @@ translateY
 	</div>
 
 	<main>
-		<h2>상품 등록</h2>
-		<form class="product-form" action="" method="post"
-			enctype="multipart/form-data">
-			<div class="form-group">
-				<label for="product-name">상품명</label> <input type="text"
-					id="product-name" placeholder="상품명을 입력하세요">
-			</div>
+	<h2>상품 등록</h2>
+	<form class="product-form" action="AddProductService" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="product-name">상품명</label> 
+			<input type="text" id="product-name" name="product-name" placeholder="상품명을 입력하세요">
+		</div>
 
-			<div class="form-group">
-				<label for="price">판매가격</label> <input type="text" id="price"
-					placeholder="₩ 판매가격을 입력하세요">
-			</div>
+		<div class="form-group">
+			<label for="price">판매가격</label> 
+			<input type="text" id="price" name="price" placeholder="판매가격을 입력하세요">
+		</div>
 
-			<div class="form-group">
-				<label for="product-images">상품 이미지 (최대 3개)</label> <input
-					type="file" id="product-images" accept="image/*"
-					style="display: none;">
-				<button type="button" id="custom-file-upload">이미지 선택</button>
-				<div class="image-preview" id="image-preview"></div>
-			</div>
+		<div class="form-group">
+			<label for="product-images">상품 이미지 (최대 3개)</label> 
+			<input type="file" id="product-images" name="product-images" accept="image/*" style="display: none;">
+			<button type="button" id="custom-file-upload">이미지 선택</button>
+			<div class="image-preview" id="image-preview"></div>
+		</div>
 
-
-			<div class="form-group">
-				<label for="description">상품설명</label>
-				<textarea id="description" rows="8" maxlength="3000"
-					placeholder="- 상품명(브랜드) 
+		<div class="form-group">
+			<label for="description">상품설명</label>
+			<textarea id="description" name="description" rows="8" maxlength="3000" placeholder="- 상품명(브랜드) 
         - 모델명
         - 구매 시기
         - 사용 기간
         - 하자 여부
         * 실제 촬영한 사진과 함께 상세 정보를 입력해주세요.
         * 카카오톡 아이디 첨부 시 게시물 삭제 및 이용제재 처리될 수 있어요."
-					oninput="updateCharCount()"></textarea>
-				<div class="char-counter">
-					<span id="char-count">0</span> / 3000
-				</div>
+        oninput="updateCharCount()"></textarea>
+			<div class="char-counter">
+				<span id="char-count">0</span> / 3000
 			</div>
+		</div>
 
-			<div class="form-group">
-				<label>상품 상태</label>
-				<div class="product-condition">
-					<input type="radio" id="used" name="condition" value="used">
-					<label for="used" class="condition-label">중고</label> <input
-						type="radio" id="new" name="condition" value="new"> <label
-						for="new" class="condition-label">새상품</label>
-				</div>
-			</div>
+		<div class="form-group">
+		    <label>상품 상태</label>
+            <div class="product-condition">
+                <input type="radio" id="used" name="condition" value="중고">
+                <label for="used" class="condition-label">중고</label>
+                <input type="radio" id="new" name="condition" value="새상품">
+                <label for="new" class="condition-label">새상품</label>
+            </div>
+		</div>
 
-			<div class="form-group">
-				<label>거래 방법</label>
-				<div class="transaction-method">
-					<input type="radio" id="delivery" name="transaction"
-						value="delivery"> <label for="delivery"
-						class="method-label">직거래</label> <input type="radio" id="direct"
-						name="transaction" value="direct"> <label for="direct"
-						class="method-label">SafeSpot 이용</label>
-				</div>
+		<div class="form-group">
+			<label>거래 방법</label>
+			<div class="transaction-method">
+				<input type="radio" id="direct" name="transaction" value="직거래"> 
+				<label for="direct" class="method-label">직거래</label> 
+				<input type="radio" id="safespot" name="transaction" value="SafeSpot사용"> 
+				<label for="safespot" class="method-label">SafeSpot 이용</label>
 			</div>
+		</div>
 
-			<div class="form-group">
-				<button type="submit" class="submit-btn" onclick="location.href='#'">등록하기</button>
-			</div>
-		</form>
-	</main>
+		<div class="form-group">
+			<button type="submit" class="submit-btn">등록하기</button>
+		</div>
+	</form>
+</main>
+
 
 	<script>
                 // 폼 제출 시 필수 항목을 모두 입력했는지 확인하는 함수
@@ -5886,6 +5882,12 @@ translateY
                     imageCount = imagePreview.querySelectorAll('.image-container').length;
 
                     Array.from(files).forEach(file => {
+                        // 중복 파일 방지
+                        if (selectedFiles.some(f => f.name === file.name)) {
+                            alert('이미 선택한 파일입니다.');
+                            return;
+                        }
+
                         if (imageCount >= maxImages) {
                             alert(`이미지는 최대 ${maxImages}개까지 업로드 가능합니다.`);
                             return;
@@ -5899,13 +5901,6 @@ translateY
 
                         const reader = new FileReader();
                         reader.onload = function (e) {
-                            // 중복 파일 방지
-                            const existingImages = Array.from(imagePreview.getElementsByTagName('img')).map(img => img.src);
-                            if (existingImages.includes(e.target.result)) {
-                                alert('이미 선택한 이미지입니다.');
-                                return;
-                            }
-
                             const container = document.createElement('div');
                             container.classList.add('image-container');
 
@@ -5936,6 +5931,7 @@ translateY
                     event.target.value = '';
                 });
 
+
                 // 선택된 파일 리스트를 업데이트하여 실제로 폼 제출 시 파일이 인식되도록 처리
                 function updateInputFiles() {
                     const fileInput = document.getElementById('product-images');
@@ -5954,23 +5950,6 @@ translateY
                         alert('최소 1개 이상의 이미지를 업로드해주세요.');
                         event.preventDefault(); // 폼 제출 방지
                     }
-                });
-            </script>
-	<script>
-                // 자동으로 금액을 천단위로 표시하는 함수
-                function formatPrice(value) {
-                    // 숫자만 남기기
-                    const cleanValue = value.replace(/\D/g, '');
-
-                    // 천단위 콤마 추가
-                    const formattedValue = cleanValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-                    return '₩ ' + formattedValue;
-                }
-
-                // 입력값이 변경될 때마다 포맷 적용
-                document.getElementById('price').addEventListener('input', function () {
-                    this.value = formatPrice(this.value);
                 });
             </script>
 	<script>

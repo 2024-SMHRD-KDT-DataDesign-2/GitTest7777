@@ -21,5 +21,7 @@
   <!-- mappers : 사용할 mapper 파일을 연결하는 태그! => SQL문장을 가지고 있는 파일! -->
   <mappers>
     <mapper resource="com/smhrd/db/MemberMapper.xml"/>
+    <mapper resource="com/smhrd/db/ProductMapper.xml"/>
   </mappers>
+  
 </configuration>

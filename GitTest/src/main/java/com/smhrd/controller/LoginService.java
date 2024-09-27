@@ -8,22 +8,44 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/LogoutService")
-public class LogoutService extends HttpServlet {
+import com.smhrd.model.CustomerDAO;
+import com.smhrd.model.CustomerDTO;
+
+@WebServlet("/LoginService")
+public class LoginService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 로그아웃 == 세션에 들어있는 데이터 전부 지우기
-		// 1. session 꺼내오기
-		// HttpSession session = request.getSession();
-		// 2. session 무효화 시켜주기(모든 데이터 지우기)
-		// session.invalidate();
-		// 굳이 스텝을 끊지 않고 싶다면 아래와 같이 작성 가능하다.
-		request.getSession().invalidate();
-		
-		// 3. main.jsp로 redirect방식으로 이동
+
+		// 1. 인코딩
+		request.setCharacterEncoding("UTF-8");
+
+		// 2. 데이터 꺼내오기
+		String cust_id = request.getParameter("cust_id");
+		String cust_pw = request.getParameter("cust_pw");
+
+		// 3. 데이터 처리하기 -> DAO -> DB
+		CustomerDAO dao = new CustomerDAO();
+		CustomerDTO dto = new CustomerDTO();
+		dto.setCust_id(cust_id);
+		dto.setCust_pw(cust_pw);
+
+		// 로그인 성공시 해당 회원의 모든 정보를 리턴 받는다!
+		CustomerDTO info = dao.login(dto);
+
+		// 4. 결과 출력하기 -> 로그인 성공/실패 여부에 상관없이 무조건 main.jsp 이동!
+		// 단! 로그인 성공시 session 영역에 회원의 정보를 저장한 상태로 페이지 이동!
+		if (info != null) {
+			// session 영역 활용!
+			HttpSession session = request.getSession();
+			session.setAttribute("info", info);
+			
+			System.out.println("로그인 성공!");
+			
+		}
 		response.sendRedirect("main.jsp");
+
 	}
 
 }

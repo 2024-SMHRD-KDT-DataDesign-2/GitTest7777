@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -38,6 +40,17 @@ public class ProductDAO {
         return product;
     }
     
-   
+    public List<ProductDTO> getAllProducts() {
+        SqlSession session = sqlSessionFactory.openSession();
+        List<ProductDTO> productList = null;
+        try {
+            productList = session.selectList("com.smhrd.mapper.ProductMapper.selectAllProducts");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return productList;
+    }
+    
 }
-

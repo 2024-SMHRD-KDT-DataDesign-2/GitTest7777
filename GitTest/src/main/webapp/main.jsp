@@ -5113,7 +5113,7 @@ translateY
 									class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" src="./로고.png"
 									alt="이미지 준비중입니다." width="46px" height="46px"></a></li>
 							<li class="_1knjz49n"><a
-								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.jsp">중고거래</a></li>
+								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.do">중고거래</a></li>
 							<li class="_1knjz49n"><a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">자유
 									게시판</a></li>
@@ -5195,215 +5195,25 @@ translateY
 			</div>
 		</section>
 		<section class="fleamarket-article-list">
-			<h1 class="text-center article-list-title">중고물품 등록</h1>
+			<h1 class="text-center article-list-title">인기 중고물품</h1>
 
-			<div class="cards-wrap">
+		<div class="product-list">
+		    <c:forEach var="product" items="${productList}">
 				<article class="card-top ">
-					<a class="card-link " data-event-label="833126287"
-						href="/articles/833126287">
-						<div class="card-photo ">
-							<img alt="삼성라이온즈 9월21일 5시경기 테이블석2연석"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/d180d6eb250c10dbfa48f31a365761d7bf3eaa6efb51590a74fb83b152aceba4_0.webp?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">삼성라이온즈 9월21일 5시경기 테이블석2연석</h2>
-							<div class="card-price ">123원</div>
-							<div class="card-region-name">대구 달서구 진천동</div>
-							<div class="card-counts">
-								<span> 관심 11 </span> ∙ <span> 채팅 95 </span>
-							</div>
-						</div>
-					</a>
+					<a class="product-link" href="/products/${product.prod_idx}">
+				        <div class="product-img">
+				            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
+				        </div>
+				        <div class="product-desc">
+				            <h2 class="pro-title">${product.prod_name}</h2>
+				            <div class="prod-price">${product.prod_category}</div>
+				            <div class="prod-price">${product.prod_price}원</div>
+				        </div>
+				 	</a>
 				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833912821"
-						href="/articles/833912821">
-						<div class="card-photo ">
-							<img alt="삼성라이온즈 21일 4연석 티켓 양도합니다.(티셔츠 없이 양도)"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/f3e56ac2a85b4000fc71c5332942177ab8bdef25eb902296ef20a6dc8e419228_0.webp?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">삼성 라이온즈</h2>
-							<div class="card-price ">30,000원</div>
-							<div class="card-region-name">대구 서구 내당동</div>
-							<div class="card-counts">
-								<span> 관심 8 </span> ∙ <span> 채팅 57 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833483615"
-						href="/articles/833483615">
-						<div class="card-photo ">
-							<img alt="65인치 티비 팝니다(사용한지 4년정도 밖에 안된 티비입니다)"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/a3c981f1a6db16000a2b02474c44edbffbf67b08e6d0515335aefb855b61d589_0.webp?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">65인치 티비 팝니다(사용한지 4년정도 밖에 안된 티비입니다)</h2>
-							<div class="card-price ">40,000원</div>
-							<div class="card-region-name">경기도 수원시 권선구 호매실동</div>
-							<div class="card-counts">
-								<span> 관심 39 </span> ∙ <span> 채팅 38 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833650601"
-						href="/articles/833650601">
-						<div class="card-photo ">
-							<img alt="자연산대하"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/db65707fda7feb0a2bccb0954bbbc16e21b11fca82fdce54aa681ae21668096e_0.webp?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">자연산대하</h2>
-							<div class="card-price ">25,000원</div>
-							<div class="card-region-name">광주 광산구 우산동</div>
-							<div class="card-counts">
-								<span> 관심 93 </span> ∙ <span> 채팅 77 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833670876"
-						href="/articles/833670876">
-						<div class="card-photo ">
-							<img alt="컴퓨터 잘만지시는분 ㅠㅠ"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/7b1ad2bbf70c738cfc3f82e0bd0e1b30d79dff98cc683fe8b7e3442d92698608.jpg?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">컴퓨터 잘만지시는분 ㅠㅠ</h2>
-							<div class="card-price ">10,000원</div>
-							<div class="card-region-name">부산 사상구 주례제3동</div>
-							<div class="card-counts">
-								<span> 관심 6 </span> ∙ <span> 채팅 43 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="832680979"
-						href="/articles/832680979">
-						<div class="card-photo ">
-							<img alt="국산 참깨 3.5~4키로"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/c698a468ef6c3b63a6dc65192b3a65a0c709feb17bebbebc0f3c88610388dd79.jpg?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">국산 참깨 3.5~4키로</h2>
-							<div class="card-price ">1,000원</div>
-							<div class="card-region-name">광주 광산구 신창동</div>
-							<div class="card-counts">
-								<span> 관심 11 </span> ∙ <span> 채팅 49 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="832748055"
-						href="/articles/832748055">
-						<div class="card-photo ">
-							<img alt="말본 골프 골프백 스탠드백 판매합니다"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/59d8a94e4d1b867197542a504e093ec8cddd74424dcab9f567679a97e6327a16_0.webp?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">말본 골프 골프백 스탠드백 판매합니다</h2>
-							<div class="card-price ">100,000원</div>
-							<div class="card-region-name">서울 강남구 삼성1동</div>
-							<div class="card-counts">
-								<span> 관심 34 </span> ∙ <span> 채팅 20 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833796311"
-						href="/articles/833796311">
-						<div class="card-photo ">
-							<img alt="생땅콩"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/a4cb6b489a3303e8f1b68b2ed9de57324dc77ae2b0ff4a2fb31c657c6d3fe375_0.webp?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">생땅콩</h2>
-							<div class="card-price ">8,000원</div>
-							<div class="card-region-name">세종시 금남면</div>
-							<div class="card-counts">
-								<span> 관심 56 </span> ∙ <span> 채팅 35 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="832921019"
-						href="/articles/832921019">
-						<div class="card-photo ">
-							<img alt="애플워치se44미리 거의사용을하지않아 판매합니다"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/9b4eb861c13248812248e3aa4dfc21a7229900b88ac73542ce2a906f52eb282d.jpg?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">애플워치se44미리 거의사용을하지않아 판매합니다</h2>
-							<div class="card-price ">35,000원</div>
-							<div class="card-region-name">서울 강북구 수유3동</div>
-							<div class="card-counts">
-								<span> 관심 46 </span> ∙ <span> 채팅 101 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833653497"
-						href="/articles/833653497">
-						<div class="card-photo ">
-							<img alt="65인치 삼성티비 (벽걸이 전용)"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/c264b3d3f1ee02747240be820419614d50f5aba4801df906fe6aa5ea1553ea14.jpg?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">65인치 삼성티비 (벽걸이 전용)</h2>
-							<div class="card-price ">100,000원</div>
-							<div class="card-region-name">인천 부평구 청천1동</div>
-							<div class="card-counts">
-								<span> 관심 22 </span> ∙ <span> 채팅 29 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833948685"
-						href="/articles/833948685">
-						<div class="card-photo ">
-							<img alt="스팸200g×6"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/f4496cfd4df29566817252f924d8ba859a38c2586f8c772295c50f4d5ed90016_0.webp?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">스팸200g×6</h2>
-							<div class="card-price ">10,000원</div>
-							<div class="card-region-name">서울 도봉구 창제4동</div>
-							<div class="card-counts">
-								<span> 관심 9 </span> ∙ <span> 채팅 26 </span>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="card-top ">
-					<a class="card-link " data-event-label="833643027"
-						href="/articles/833643027">
-						<div class="card-photo ">
-							<img alt="스팸"
-								src="https://img.kr.gcp-karroter.net/origin/article/202409/2f1bcfd85e853c1df8a6beaaafd626882f13875deae350d0020b04c31a9c41f6.jpg?f=webp&amp;q=82&amp;s=300x300&amp;t=crop">
-						</div>
-						<div class="card-desc">
-							<h2 class="card-title">스팸</h2>
-							<div class="card-price ">10,000원</div>
-							<div class="card-region-name">경남 김해시 내외동</div>
-							<div class="card-counts">
-								<span> 관심 14 </span> ∙ <span> 채팅 19 </span>
-							</div>
-						</div>
-					</a>
-				</article>
+		    </c:forEach>
+		 </div>
 
-			</div>
 
 			<div class="text-center article-list-more">
 				<a class="text-bold text-black text-m" id="hot-articles-more"
@@ -5413,6 +5223,36 @@ translateY
 
 
 	</main>
+	
+	<style>
+    .product-img {
+        width: 200px; /* div 너비 */
+        height: 200px; /* div 높이 */
+        overflow: hidden; /* 이미지가 div 크기를 초과할 경우 숨김 처리 */
+    }
+
+    .product-img img {
+        width: 100%; /* div의 너비에 맞게 이미지 크기를 조정 */
+        height: 100%; /* div의 높이에 맞게 이미지 크기를 조정 */
+        object-fit: cover; /* 이미지 비율을 유지하며 div에 맞게 자르기 */
+    }
+    .product-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 757px;
+    }
+	}
+	div {
+    display: block;
+    unicode-bidi: isolate;
+	}
+	
+	</style>
+	
 	<script>
 		//<![CDATA[
 		facebookClickEvent("ViewContent");

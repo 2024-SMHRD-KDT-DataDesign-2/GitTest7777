@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -23,21 +25,19 @@ public class ProductDAO {
         }
         return row;
     }
-
-    // 삽입된 상품 정보 확인 메소드
-    public ProductDTO selectProductById(int prod_idx) {
+    
+    // 상품 정보 삽입 메소드
+    public List<ProductDTO> getAllProducts() {
         SqlSession session = sqlSessionFactory.openSession();
-        ProductDTO product = null;
+        List<ProductDTO> productList = null;
         try {
-            product = session.selectOne("com.smhrd.mapper.ProductMapper.selectProductById", prod_idx);
+            productList = session.selectList("com.smhrd.mapper.ProductMapper.selectAllProducts");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return product;
+        return productList;
     }
     
-   
 }
-

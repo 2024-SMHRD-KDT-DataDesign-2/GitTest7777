@@ -5200,7 +5200,7 @@ translateY
 		<div class="product-list">
 		    <c:forEach var="product" items="${productList}">
 				<article class="card-top ">
-					<a class="product-link" href="${pageContext.request.contextPath}/products/${product.prod_idx}">
+					<a class="product-link" href="/products/${product.prod_idx}">
 				        <div class="product-img">
 				            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
 				        </div>

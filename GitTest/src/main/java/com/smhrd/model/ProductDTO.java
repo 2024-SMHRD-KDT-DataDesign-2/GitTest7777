@@ -16,4 +16,3 @@ public class ProductDTO {
     private String cust_id;        // 판매자 ID (세션에서 가져온 사용자 ID)
     private String created_at;     // 등록 일자 (SYSDATE로 처리)
 }
-

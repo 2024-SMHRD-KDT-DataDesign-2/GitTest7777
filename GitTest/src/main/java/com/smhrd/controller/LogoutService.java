@@ -23,7 +23,7 @@ public class LogoutService extends HttpServlet {
 		request.getSession().invalidate();
 		
 		// 3. main.jsp로 redirect방식으로 이동
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("main.do");
 	}
 
 }

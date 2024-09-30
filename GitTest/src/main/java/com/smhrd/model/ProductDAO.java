@@ -11,7 +11,7 @@ public class ProductDAO {
 
     private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactory();
 
-    // 상품 정보 삽입 메소드
+    // 등록한 상품정보 DB에 삽입하는 메소드
     public int insertProduct(ProductDTO product) {
         SqlSession session = sqlSessionFactory.openSession();
         int row = 0;
@@ -26,7 +26,7 @@ public class ProductDAO {
         return row;
     }
 
-    // 삽입된 상품 정보 확인 메소드
+    // 클릭한 상품정보 가져오는 메소드
     public ProductDTO selectProductById(int prod_idx) {
         SqlSession session = sqlSessionFactory.openSession();
         ProductDTO product = null;
@@ -40,6 +40,7 @@ public class ProductDAO {
         return product;
     }
     
+    // DB에 있는 모든 물품정보 꺼내오는 메소드
     public List<ProductDTO> getAllProducts() {
         SqlSession session = sqlSessionFactory.openSession();
         List<ProductDTO> productList = null;

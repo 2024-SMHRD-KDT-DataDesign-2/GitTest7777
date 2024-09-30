@@ -15,4 +15,6 @@ public class ProductDTO {
     private String prod_img3;      // 이미지 3 경로
     private String cust_id;        // 판매자 ID (세션에서 가져온 사용자 ID)
     private String created_at;     // 등록 일자 (SYSDATE로 처리)
+    private String cust_addr;	   // 판매자 주소
+    
 }

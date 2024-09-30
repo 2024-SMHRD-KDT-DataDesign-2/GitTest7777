@@ -5208,6 +5208,7 @@ translateY
 				            <h2 class="pro-title">${product.prod_name}</h2>
 				            <div class="prod-price">${product.prod_category}</div>
 				            <div class="prod-price">${product.prod_price}원</div>
+				            <div class="prod-price">${product.cust_addr}</div>
 				        </div>
 				 	</a>
 				</article>

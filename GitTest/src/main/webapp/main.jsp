@@ -5117,6 +5117,8 @@ translateY
 							<li class="_1knjz49n"><a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">자유
 									게시판</a></li>
+									<li class="_1knjz49n"><a
+								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="#">SafeSpot 찾기</a></li>
 						</ul>
 					</nav>
 					<div class="_1s38h9c1 _1s38h9c0">
@@ -5129,12 +5131,16 @@ translateY
 										fill="#212124"></path>
 								</svg>
 							</button>
-							<form action="Search" novalidate="" class="_1knjz498">
+							<form action="Search" novalidate="" class="_1knjz498" style="display: flex; flex-direction: column;">
 								<input type="search" class="_1knjz49a" placeholder="물품을 검색하세요."
 									name="search">
-							</form> </span> <span><button type="submit"
+									<button type="submit"
 								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-								style="margin-right: 50px;">검색</button></span>
+								style="margin-right: 50px;" onclick="window.location.href='Search'">
+								검색
+								</button>
+							</form> </span>
+							<span>
 								<span><c:if
 								test="${info!=null}">
 								<button type="button"
@@ -5162,7 +5168,7 @@ translateY
 							</c:if> <c:if test="${info !=null}">
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-									onclick="location.href='#'">개인정보수정</button>
+									onclick="location.href='Mypage.jsp'">마이 페이지</button>
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
 									onclick="window.location.href='LogoutService'">로그아웃</button>
@@ -5196,31 +5202,9 @@ translateY
 			</div>
 		</section>
 		<section class="fleamarket-article-list">
-<<<<<<< HEAD
-			<h1 class="text-center article-list-title">인기 중고물품</h1>
-=======
 			<h1 class="text-center article-list-title">중고물품</h1>
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-DataDesign-2/GitTest7777.git
 
 		<div class="product-list">
-<<<<<<< HEAD
-		    <c:forEach var="product" items="${productList}">
-				<article class="card-top ">
-					<a class="product-link" href="/products/${product.prod_idx}">
-				        <div class="product-img">
-				            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
-				        </div>
-				        <div class="product-desc">
-				            <h2 class="pro-title">${product.prod_name}</h2>
-				            <div class="prod-price">${product.prod_category}</div>
-				            <div class="prod-price">${product.prod_price}원</div>
-				            <div class="prod-price">${product.cust_addr}</div>
-				        </div>
-				 	</a>
-				</article>
-		    </c:forEach>
-		 </div>
-=======
 		
 		    <c:if test="${not empty filteredProductList}">
         <h1>검색 결과: ${searchQuery}</h1>
@@ -5267,7 +5251,6 @@ translateY
             </c:forEach>
         </div>
     </c:if>
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-DataDesign-2/GitTest7777.git
 
 
 			<div class="text-center article-list-more">
@@ -6129,7 +6112,7 @@ translateY
 	}
 	#gnb-root ._1knjz49o, #gnb-root ._1knjz49r, #gnb-root ._1knjz49t {
 		line-height: 1.32;
-		font-size: 1.8rem;
+		font-size: 1.2rem;
 		letter-spacing: -2%
 	}
 	#gnb-root ._1knjz49u {

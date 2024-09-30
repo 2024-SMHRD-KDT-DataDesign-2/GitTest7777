@@ -30,3 +30,4 @@ public class Search extends HttpServlet {
         dispatcher.forward(request, response);
     }
 }
+

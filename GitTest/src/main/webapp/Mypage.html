@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.mypage-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section 1: User Info */
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.edit-button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #ddd;
+}
+
+/* Section 2: User Description */
+.user-description {
+    margin-top: 20px;
+}
+
+.user-description p {
+    font-size: 18px;
+}
+
+.edit-description {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.edit-description:hover {
+    background-color: #ddd;
+}
+
+/* Section 3: Product Section */
+.product-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.product-section h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Empty Products */
+.empty-products {
+    margin-top: 10px;
+    text-align: center;
+    color: #999;
+}
+
+    
+    </style>
+</head>
+<body>
+    <div class="mypage-container">
+        <!-- Section 1: User Information -->
+        <div class="user-info">
+            <h2>김김하오</h2> <!-- User Name -->
+            <button class="edit-button">내역 수정</button> <!-- Edit Button -->
+        </div>
+        
+        <!-- Section 2: Introduction -->
+        <div class="user-description">
+            <p>○○○</p> <!-- User's self-description or bio -->
+            <button class="edit-description">소개글 수정</button> <!-- Button to edit bio -->
+        </div>
+        
+        <!-- Section 3: Product Section -->
+        <div class="product-section">
+            <h3>상품 0</h3> <!-- Product title and count -->
+        </div>
+        
+        <!-- Empty Products Area -->
+        <div class="empty-products">
+            <p>등록된 상품이 없습니다.</p> <!-- No products registered message -->
+        </div>
+    </div>
+</body>
+</html>

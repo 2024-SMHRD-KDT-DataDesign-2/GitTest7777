@@ -54,4 +54,8 @@ public class product extends HttpServlet {
 	        }
 	    }
         
+<<<<<<< HEAD
 	}
+=======
+	}
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-DataDesign-2/GitTest7777.git

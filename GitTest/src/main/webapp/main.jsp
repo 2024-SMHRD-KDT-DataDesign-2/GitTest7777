@@ -5198,22 +5198,51 @@ translateY
 			<h1 class="text-center article-list-title">중고물품</h1>
 
 		<div class="product-list">
-    <c:forEach var="product" items="${productList}">
-        <article class="card-top">
-            <a class="product-link" href="${pageContext.request.contextPath}/products/${product.prod_idx}">
-                <div class="product-img">
-                    <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
-                </div>
-                <div class="product-desc">
-                    <h2 class="prod-title">${product.prod_name}</h2>
-                    <div class="pro-price">${product.prod_price}원</div>
-                    <div class="cust-addr">${product.cust_addr}</div>
-                    <div class="cust-nick">${product.cust_nick}</div>
-                    <div class="cust-category">${product.prod_category}</div>
-                </div>
-            </a>
-        </article>
-    </c:forEach>
+    <c:if test="${not empty filteredProductList}">
+        <h1>검색 결과: ${searchQuery}</h1>
+        <div class="product-list">
+            <c:forEach var="product" items="${filteredProductList}">
+                <article class="card-top">
+                    <a class="product-link" href="${pageContext.request.contextPath}/products/${product.prod_idx}">
+                        <div class="product-img">
+                            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
+                        </div>
+                        <div class="product-desc">
+                            <h2 class="pro-title">${product.prod_name}</h2>
+                            <h3 class="pro-title">${product.cust_addr}</h3>
+                            <div class="prod-category">${product.prod_category}</div>
+                            <div class="prod-price">${product.prod_price}원</div>
+                        </div>
+                    </a>
+                </article>
+            </c:forEach>
+        </div>
+
+        <c:if test="${empty filteredProductList}">
+            <p>검색 결과가 없습니다.</p>
+        </c:if>
+    </c:if>
+    
+    <c:if test="${empty filteredProductList}">
+        <h1>전체 상품 목록</h1>
+        <div class="product-list">
+            <c:forEach var="product" items="${productList}">
+                <article class="card-top">
+                    <a class="product-link" href="${pageContext.request.contextPath}/products/${product.prod_idx}">
+                        <div class="product-img">
+                            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
+                        </div>
+                        <div class="product-desc">
+                            <h2 class="pro-title">${product.prod_name}</h2>
+                            <h3 class="pro-title">${product.cust_addr}</h3>
+                            <div class="prod-category">${product.prod_category}</div>
+                            <div class="prod-price">${product.prod_price}원</div>
+                        </div>
+                    </a>
+                </article>
+            </c:forEach>
+        </div>
+    </c:if>
 </div>
 
 

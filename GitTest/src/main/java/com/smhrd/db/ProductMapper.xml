@@ -23,7 +23,7 @@
     <!-- 상품 정보 확인 (방금 삽입된 데이터 조회) -->
    <select id="selectProductById" parameterType="int"
       resultType="com.smhrd.model.ProductDTO">
-      SELECT P.*, C.CUST_ADDR FROM PRODUCTS P INNER JOIN CUSTOMERS C ON P.CUST_ID = C.CUST_ID WHERE PROD_IDX = #{prod_idx}
+      SELECT P.*, C.* FROM PRODUCTS P INNER JOIN CUSTOMERS C ON P.CUST_ID = C.CUST_ID WHERE PROD_IDX = #{prod_idx}
    </select>
 
 </mapper>

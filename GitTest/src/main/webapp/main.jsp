@@ -5109,7 +5109,7 @@ translateY
 					<a class="_1knjz492" href="https://www.daangn.com"><span></span></a>
 					<nav class="_1knjz49j _1s38h9c0">
 						<ul class="_1knjz49j _1s38h9c5">
-							<li class="_1knjz49n"><a href="#"><img
+							<li class="_1knjz49n"><a href="main.do"><img
 									class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" src="./로고.png"
 									alt="이미지 준비중입니다." width="46px" height="46px"></a></li>
 							<li class="_1knjz49n"><a
@@ -5117,8 +5117,6 @@ translateY
 							<li class="_1knjz49n"><a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">자유
 									게시판</a></li>
-									<li class="_1knjz49n"><a
-								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="#">SafeSpot 찾기</a></li>
 						</ul>
 					</nav>
 					<div class="_1s38h9c1 _1s38h9c0">
@@ -5131,17 +5129,12 @@ translateY
 										fill="#212124"></path>
 								</svg>
 							</button>
-							<form action="Search" novalidate="" class="_1knjz498" style="display: flex; flex-direction: column;">
+							<form novalidate="" class="_1knjz498">
 								<input type="search" class="_1knjz49a" placeholder="물품을 검색하세요."
-									name="search">
-									<button type="submit"
+									value="">
+							</form> </span> <span><button type="button"
 								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-								style="margin-right: 50px;" onclick="window.location.href='Search'">
-								검색
-								</button>
-							</form> </span>
-							<span>
-								<span><c:if
+								style="margin-right: 50px;">찾기</button></span> <span><c:if
 								test="${info!=null}">
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
@@ -5168,7 +5161,7 @@ translateY
 							</c:if> <c:if test="${info !=null}">
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-									onclick="location.href='Mypage.jsp'">마이 페이지</button>
+									onclick="location.href='#'">개인정보수정</button>
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
 									onclick="window.location.href='LogoutService'">로그아웃</button>
@@ -5202,55 +5195,27 @@ translateY
 			</div>
 		</section>
 		<section class="fleamarket-article-list">
-			<h1 class="text-center article-list-title">중고물품</h1>
+			<h1 class="text-center article-list-title">인기 중고물품</h1>
 
 		<div class="product-list">
-		
-		    <c:if test="${not empty filteredProductList}">
-        <h1>검색 결과: ${searchQuery}</h1>
-        <div class="product-list">
-            <c:forEach var="product" items="${filteredProductList}">
-                <article class="card-top">
-                    <a class="product-link" href="${pageContext.request.contextPath}/products/${product.prod_idx}">
-                        <div class="product-img">
-                            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
-                        </div>
-                        <div class="product-desc">
-                            <h2 class="pro-title">${product.prod_name}</h2>
-                            <h3 class="pro-title">${product.cust_addr}</h3>
-                            <div class="prod-category">${product.prod_category}</div>
-                            <div class="prod-price">${product.prod_price}원</div>
-                        </div>
-                    </a>
-                </article>
-            </c:forEach>
-        </div>
-        
-        <c:if test="${empty filteredProductList}">
-            <p>검색 결과가 없습니다.</p>
-        </c:if>
-    </c:if>
-    
-    <c:if test="${empty filteredProductList}">
-        <h1>전체 상품 목록</h1>
-        <div class="product-list">
-            <c:forEach var="product" items="${productList}">
-                <article class="card-top">
-                    <a class="product-link" href="${pageContext.request.contextPath}/products/${product.prod_idx}">
-                        <div class="product-img">
-                            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
-                        </div>
-                        <div class="product-desc">
-                            <h2 class="pro-title">${product.prod_name}</h2>
-                            <h3 class="pro-title">${product.cust_addr}</h3>
-                            <div class="prod-category">${product.prod_category}</div>
-                            <div class="prod-price">${product.prod_price}원</div>
-                        </div>
-                    </a>
-                </article>
-            </c:forEach>
-        </div>
-    </c:if>
+    <c:forEach var="product" items="${productList}">
+        <article class="card-top">
+            <a class="product-link" href="/products/${product.prod_idx}">
+                <div class="product-img">
+                    <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
+                </div>
+                <div class="product-desc">
+                    <h2 class="prod-title">${product.prod_name}</h2>
+                    <div class="pro-price">${product.prod_price}원</div>
+                    <div class="cust-addr">${product.cust_addr}</div>
+                    <div class="cust-category">${product.prod_category}</div>
+                </div>
+            </a>
+        </article>
+    </c:forEach>
+</div>
+
+
 
 
 			<div class="text-center article-list-more">
@@ -5282,20 +5247,50 @@ translateY
     margin: 0 auto;
     margin-top: 40px;
     width: 757px;
-    }
 	}
-	div {
-    display: block;
-    unicode-bidi: isolate;
+
+	.card-top {
+    margin-bottom: 40px; /* 상품 간 간격 추가 */
 	}
+
+	
+	.product-desc {
+    font-family: 'Roboto', sans-serif; /* 원하는 폰트로 변경 */
+    color: #333; /* 기본 텍스트 색 */
+	}
+
+	.prod-title {
+    font-size: 18px; /* 글씨 크기 */
+    font-weight: normal; /* 일반 두께 */
+    color: #555; /* 글씨 색상 */
+    white-space: nowrap; /* 한 줄로 표시 */
+    overflow: hidden; /* 넘친 글자는 숨김 */
+    text-overflow: ellipsis; /* 넘친 부분에 ... 표시 */
+	}
+
+	.pro-price {
+    font-size: 18px; /* 가격 크기 */
+    font-weight: bold; /* 가격 굵게 */
+    color: #000; /* 가격 색 */
+    margin-bottom: 5px;
+	}
+
+	.cust-addr, .cust-category {
+    font-size: 14px; /* 주소 및 카테고리 글씨 크기 */
+    color: #666; /* 주소 및 카테고리 색상 */
+    margin-bottom: 3px; /* 각 항목 사이의 간격 */
+	}
+
+	/* 밑줄 제거 */
+	a.product-link {
+	text-decoration: none;
+	}
+
+	
+
+	
 	
 	</style>
-	
-	<script>
-		//<![CDATA[
-		facebookClickEvent("ViewContent");
-		//]]>
-	</script>
 
 	<style>
 #gnb-root .light-theme {
@@ -6112,7 +6107,7 @@ translateY
 	}
 	#gnb-root ._1knjz49o, #gnb-root ._1knjz49r, #gnb-root ._1knjz49t {
 		line-height: 1.32;
-		font-size: 1.2rem;
+		font-size: 1.8rem;
 		letter-spacing: -2%
 	}
 	#gnb-root ._1knjz49u {

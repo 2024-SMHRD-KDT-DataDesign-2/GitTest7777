@@ -5130,12 +5130,11 @@ translateY
 										fill="#212124"></path>
 								</svg>
 							</button>
-							<form novalidate="" class="_1knjz498">
-								<input type="search" class="_1knjz49a" placeholder="물품을 검색하세요."
-									value="">
-							</form> </span> <span><button type="button"
-								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-								style="margin-right: 50px;">찾기</button></span> <span><c:if
+							<form action="Search" novalidate="" class="_1knjz498">
+    <input type="search" class="_1knjz49a" placeholder="물품을 검색하세요." name="search">
+    <button type="submit" class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i" style="margin-right: 50px;">검색</button>
+</form>
+</span> <span><c:if
 								test="${info!=null}">
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
@@ -5196,7 +5195,7 @@ translateY
 			</div>
 		</section>
 		<section class="fleamarket-article-list">
-			<h1 class="text-center article-list-title">인기 중고물품</h1>
+			<h1 class="text-center article-list-title">중고물품</h1>
 
 		<div class="product-list">
     <c:forEach var="product" items="${productList}">
@@ -5209,6 +5208,7 @@ translateY
                     <h2 class="prod-title">${product.prod_name}</h2>
                     <div class="pro-price">${product.prod_price}원</div>
                     <div class="cust-addr">${product.cust_addr}</div>
+                    <div class="cust-nick">${product.cust_nick}</div>
                     <div class="cust-category">${product.prod_category}</div>
                 </div>
             </a>

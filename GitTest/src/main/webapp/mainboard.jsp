@@ -981,8 +981,18 @@ translateY(
 										fill="#212124"></path>
                                 </svg>
 							</button>
-							<button type="button"
-								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i">로그인</button></span>
+							<c:if test="${info==null}">
+								<button type="button"
+									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
+									onclick="location.href='LoginJoin.html'">로그인</button>
+							</c:if> <c:if test="${info !=null}">
+								<button type="button"
+									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
+									onclick="location.href='Mypage.jsp'">마이 페이지</button>
+								<button type="button"
+									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
+									onclick="window.location.href='LogoutService'">로그아웃</button>
+							</c:if></span>
 					</div>
 				</div>
 			</div>

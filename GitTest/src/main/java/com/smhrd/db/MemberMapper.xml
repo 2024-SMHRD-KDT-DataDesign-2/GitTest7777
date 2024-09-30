@@ -23,8 +23,8 @@
 	
 	<!-- 개인정보수정을 위한 sql문 작성 -->
 	<update id="update" parameterType="com.smhrd.model.CustomerDTO">
-		UPDATE WEB_MEMBER SET
-		tel=#{tel}, pw=#{pw}, address=#{address} where email=#{email}
+		UPDATE customers SET
+		cust_nick=#{cust_nick} where cust_id=#{cust_id}
 	</update>
 
 

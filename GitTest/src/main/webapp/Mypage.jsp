@@ -5261,15 +5261,76 @@ body {
 		<div class="mypage-container">
         <!-- Section 1: User Information -->
         <div class="user-info">
-            <h2>김김하오</h2> <!-- User Name -->
-            <button class="edit-button">닉네임 수정</button> <!-- Edit Button -->
+        <h2>${info.cust_nick}</h2> <!-- User Name -->
+        <button class="edit-button" onclick="showEditForm()">닉네임 수정</button> <!-- Edit Button -->
+        
+        <div id="edit-form" style="display: none;"> <!-- 수정 폼을 기본적으로 숨김 -->
+            <h3>닉네임 수정</h3>
+            <form action="UpdateService" method="post">
+                <label for="cust_nick">새 닉네임:</label>
+                <input type="text" id="cust_nick" name="cust_nick" value="${info.cust_nick}" required />
+                <br/>
+                <button type="submit">수정</button>
+                <button type="button" onclick="hideEditForm()">취소</button> <!-- 취소 버튼 추가 -->
+            </form>
         </div>
+    </div>
+        
         
         <!-- Section 2: Introduction -->
-        <div class="user-description">
-            <p>○○○</p> <!-- User's self-description or bio -->
-            <button class="edit-description">소개글 수정</button> <!-- Button to edit bio -->
-        </div>
+<div class="user-description">
+    <p id="bio-text">○○○</p> <!-- User's self-description or bio -->
+    <button class="edit-description" onclick="editBio()">소개글 수정</button> <!-- Button to edit bio -->
+</div>
+
+<div id="bio-edit" style="display: none;">
+    <textarea id="bio-input" placeholder="새 소개글을 입력하세요."></textarea>
+    <button onclick="saveBio()">저장</button>
+    <button onclick="cancelEdit()">취소</button>
+</div>
+<script>
+    function showEditForm() {
+        var editForm = document.getElementById("edit-form");
+        editForm.style.display = "block"; // 수정 폼 보이기
+    }
+
+    function hideEditForm() {
+        var editForm = document.getElementById("edit-form");
+        editForm.style.display = "none"; // 수정 폼 숨기기
+    }
+</script>
+
+<script>
+    function showEditForm() {
+        var editForm = document.getElementById("edit-form");
+        // 수정 폼의 표시 상태를 토글
+        if (editForm.style.display === "none" || editForm.style.display === "") {
+            editForm.style.display = "block"; // 보이게 설정
+        } else {
+            editForm.style.display = "none"; // 숨기기 설정
+        }
+    }
+</script>
+<script>
+
+
+function editBio() {
+    const bioText = document.getElementById('bio-text').innerText;
+    document.getElementById('bio-input').value = bioText; // 현재 소개글을 입력 필드에 설정
+    document.getElementById('bio-edit').style.display = 'block'; // 입력 필드 보이기
+}
+
+function saveBio() {
+    const newBio = document.getElementById('bio-input').value;
+    document.getElementById('bio-text').innerText = newBio; // 수정한 소개글 저장
+    document.getElementById('bio-edit').style.display = 'none'; // 입력 필드 숨기기
+}
+
+function cancelEdit() {
+    document.getElementById('bio-edit').style.display = 'none'; // 입력 필드 숨기기
+}
+</script>
+
         
         <!-- Section 3: Product Section -->
         <div class="product-section">

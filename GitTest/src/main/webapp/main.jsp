@@ -5117,6 +5117,8 @@ translateY
 							<li class="_1knjz49n"><a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">자유
 									게시판</a></li>
+									<li class="_1knjz49n"><a
+								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="#">SafeSpot 찾기</a></li>
 						</ul>
 					</nav>
 					<div class="_1s38h9c1 _1s38h9c0">
@@ -5129,12 +5131,16 @@ translateY
 										fill="#212124"></path>
 								</svg>
 							</button>
-							<form action="Search" novalidate="" class="_1knjz498">
+							<form action="Search" novalidate="" class="_1knjz498" style="display: flex; flex-direction: column;">
 								<input type="search" class="_1knjz49a" placeholder="물품을 검색하세요."
 									name="search">
-							</form> </span> <span><button type="submit"
+									<button type="submit"
 								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-								style="margin-right: 50px;">검색</button></span>
+								style="margin-right: 50px;" onclick="window.location.href='Search'">
+								검색
+								</button>
+							</form> </span>
+							<span>
 								<span><c:if
 								test="${info!=null}">
 								<button type="button"
@@ -6106,7 +6112,7 @@ translateY
 	}
 	#gnb-root ._1knjz49o, #gnb-root ._1knjz49r, #gnb-root ._1knjz49t {
 		line-height: 1.32;
-		font-size: 1.8rem;
+		font-size: 1.2rem;
 		letter-spacing: -2%
 	}
 	#gnb-root ._1knjz49u {

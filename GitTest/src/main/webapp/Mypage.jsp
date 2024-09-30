@@ -5249,9 +5249,6 @@ body {
 							</c:if> <c:if test="${info !=null}">
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-									onclick="location.href='#'">개인정보수정</button>
-								<button type="button"
-									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
 									onclick="window.location.href='LogoutService'">로그아웃</button>
 							</c:if> </span>
 					</div>

@@ -5115,8 +5115,9 @@ translateY
 							<li class="_1knjz49n"><a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.do">중고거래</a></li>
 							<li class="_1knjz49n"><a
-								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">자유
-									게시판</a></li>
+								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">자유 게시판</a></li>
+								<li class="_1knjz49n"><a
+								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">SafeSpot 찾기</a></li>
 						</ul>
 					</nav>
 					<div class="_1s38h9c1 _1s38h9c0">
@@ -6107,7 +6108,7 @@ translateY
 	}
 	#gnb-root ._1knjz49o, #gnb-root ._1knjz49r, #gnb-root ._1knjz49t {
 		line-height: 1.32;
-		font-size: 1.8rem;
+		font-size: 1.2rem;
 		letter-spacing: -2%
 	}
 	#gnb-root ._1knjz49u {

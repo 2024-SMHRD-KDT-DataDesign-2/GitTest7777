@@ -5947,13 +5947,13 @@ a.product-link {
 }
 
 #gnb-root ._1knjz49o {
-			font-weight: 700;
-			line-height: 1.4;
-			font-size: 1.4rem;
-			color: var(--seed-scale-color-gray-700);
-			font-style: normal;
-			margin-right: 3rem
-		}
+	font-weight: 700;
+	line-height: 1.4;
+	font-size: 1.4rem;
+	color: var(--seed-scale-color-gray-700);
+	font-style: normal;
+	margin-right: 3rem
+}
 
 #gnb-root ._1knjz49o:hover {
 	color: var(--seed-scale-color-gray-600)

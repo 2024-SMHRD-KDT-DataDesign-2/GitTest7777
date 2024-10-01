@@ -5781,14 +5781,24 @@ a.product-link {
 }
 
 #gnb-root ._1knjz490 {
-	background-color: var(--seed-semantic-color-paper-default);
-	color: var(--seed-scale-color-gray-900);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	max-width: 100vw;
-	z-index: 999
+			background-color: var(--seed-semantic-color-paper-default);
+			color: var(--seed-scale-color-gray-900);
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			max-width: 100vw;
+			z-index: 999
+		}
+
+#gnb-root ._1knjz49o {
+    display: inline-block;
+    line-height: 1.4;
+	font-size: 1.4rem;
+	color: var(--seed-scale-color-gray-700);
+	font-style: normal;
+    margin: 0 auto;
+    white-space: nowrap; /* 줄 바꿈 방지 */
 }
 
 #gnb-root ._1knjz491 {
@@ -5818,10 +5828,6 @@ a.product-link {
 	padding: 0 1.6rem;
 	box-sizing: border-box;
 	background-color: var(--seed-scale-color-gray-00)
-}
-
-#gnb-root ._1knjz498 {
-	display: none
 }
 
 #gnb-root ._1knjz499 {
@@ -6124,7 +6130,7 @@ a.product-link {
 	}
 	#gnb-root ._1knjz49o, #gnb-root ._1knjz49r, #gnb-root ._1knjz49t {
 		line-height: 1.32;
-		font-size: 1.2rem;
+		font-size: 1.8rem;
 		letter-spacing: -2%
 	}
 	#gnb-root ._1knjz49u {
@@ -6137,10 +6143,13 @@ a.product-link {
 		display: none
 	}
 	#gnb-root ._1knjz498 {
-		display: block;
-		position: relative;
-		margin-right: 1.2rem
+    display: inline-flex; /* 다른 버튼과 수평 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    margin-right: 1.2rem; /* 우측 여백 */
+    padding: 10px 20px; /* 여백 설정 */
+    border-radius: 5px; /* 둥근 모서리 */
 	}
+
 	#gnb-root ._1knjz499 {
 		display: none
 	}

@@ -2309,11 +2309,6 @@
 			line-height: 1.36;
 			font-size: 1.6rem
 		}
-
-		#gnb-root ._1knjz49j {
-			display: none
-		}
-
 		#gnb-root ._1knjz49k {
 			font-weight: 700;
 			line-height: 1.42;

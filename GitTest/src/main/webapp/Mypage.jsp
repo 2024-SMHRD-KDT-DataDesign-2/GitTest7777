@@ -5338,8 +5338,22 @@ function cancelEdit() {
         </div>
         
         <!-- Empty Products Area -->
-        <div class="empty-products">
-            <p>등록된 상품이 없습니다.</p> <!-- No products registered message -->
+        <div class="product-list">
+            <c:forEach var="product" items="${productList}">
+                <article class="card-top">
+                    <a class="product-link" href="${pageContext.request.contextPath}/products/${product.prod_idx}">
+                        <div class="product-img">
+                            <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
+                        </div>
+                        <div class="product-desc">
+                            <h2 class="pro-title">${product.prod_name}</h2>
+                            <h3 class="pro-title">${product.cust_addr}</h3>
+                            <div class="prod-category">${product.prod_category}</div>
+                            <div class="prod-price">${product.prod_price}원</div>
+                        </div>
+                    </a>
+                </article>
+            </c:forEach>
         </div>
     </div>
 	</main>

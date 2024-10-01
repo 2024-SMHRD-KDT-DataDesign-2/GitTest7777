@@ -53,4 +53,17 @@ public class ProductDAO {
         return productList;
     }
     
+    public List<ProductDTO> getIdProducts(String cust_id) {
+        SqlSession session = sqlSessionFactory.openSession();
+        List<ProductDTO> productList = null;
+        try {
+            productList = session.selectList("com.smhrd.mapper.ProductMapper.selectIdProducts", cust_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return productList;
+    }
+    
 }

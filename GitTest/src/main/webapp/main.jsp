@@ -140,12 +140,6 @@
 
 <style type="text/css"
 	data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">
-.fb_hidden {
-	position: absolute;
-	top: -10000px;
-	z-index: 10001
-}
-
 .fb_reposition {
 	overflow: hidden;
 	position: relative
@@ -153,33 +147,6 @@
 
 .fb_invisible {
 	display: none
-}
-
-.fb_reset {
-	background: none;
-	border: 0;
-	border-spacing: 0;
-	color: #000;
-	cursor: auto;
-	direction: ltr;
-	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-	font-size: 11px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	letter-spacing: normal;
-	line-height: 1;
-	margin: 0;
-	overflow: visible;
-	padding: 0;
-	text-align: left;
-	text-decoration: none;
-	text-indent: 0;
-	text-shadow: none;
-	text-transform: none;
-	visibility: visible;
-	white-space: normal;
-	word-spacing: normal
 }
 
 .fb_reset>div {
@@ -5092,16 +5059,6 @@ translateY
 </head>
 
 <body class="hoian-kr">
-
-	<script type="text/javascript" id="" charset="">!function (b, e, f, g, a, c, d) {b.fbq || (a = b.fbq = function () {a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)}, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))}(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "992961397411651"); fbq("set", "agent", "tmgoogletagmanager", "992961397411651"); fbq("track", "PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none" alt="facebook"
-			src="https://www.facebook.com/tr?id=992961397411651&ev=PageView&noscript=1" />
-	</noscript>
-
-
-
-
 	<div id="gnb-root">
 		<div class="light-theme">
 			<div class="_1knjz490">
@@ -5195,7 +5152,7 @@ translateY
 			</div>
 		</section>
 		<section class="fleamarket-article-list">
-			<h1 class="text-center article-list-title">중고물품</h1>
+			<h1 class="text-center article-list-title">중고거래 매물</h1>
 
 		<div class="product-list">
     <c:if test="${not empty filteredProductList}">
@@ -5208,11 +5165,11 @@ translateY
                             <img src="${pageContext.request.contextPath}/${product.prod_img1}" alt="${product.prod_name}">
                         </div>
                         <div class="product-desc">
-                            <h2 class="pro-title">${product.prod_name}</h2>
-                            <h3 class="pro-title">${product.cust_addr}</h3>
-                            <div class="prod-category">${product.prod_category}</div>
-                            <div class="prod-price">${product.prod_price}원</div>
-                        </div>
+                    		<h2 class="prod-title">${product.prod_name}</h2>
+                    		<div class="pro-price">${product.prod_price}원</div>
+                    		<div class="cust-addr">${product.cust_addr}</div>
+                    		<div class="prod-category">${product.prod_category}</div>
+                		</div>
                     </a>
                 </article>
             </c:forEach>
@@ -5224,7 +5181,6 @@ translateY
     </c:if>
     
     <c:if test="${empty filteredProductList}">
-        <h1>전체 상품 목록</h1>
         <div class="product-list">
             <c:forEach var="product" items="${productList}">
                 <article class="card-top">
@@ -5234,9 +5190,9 @@ translateY
                         </div>
                         <div class="product-desc">
                             <h2 class="pro-title">${product.prod_name}</h2>
-                            <h3 class="pro-title">${product.cust_addr}</h3>
+                            <h3 class="pro-price">${product.prod_price}원</h3>
+                            <div class="cust-addr">${product.cust_addr}</div>
                             <div class="prod-category">${product.prod_category}</div>
-                            <div class="prod-price">${product.prod_price}원</div>
                         </div>
                     </a>
                 </article>
@@ -5258,68 +5214,99 @@ translateY
 	</main>
 	
 	<style>
-    .product-img {
-        width: 200px; /* div 너비 */
-        height: 200px; /* div 높이 */
-        overflow: hidden; /* 이미지가 div 크기를 초과할 경우 숨김 처리 */
-    }
+	.product-img {
+    width: 200px; /* div 너비 */
+    height: 200px; /* div 높이 */
+    overflow: hidden; /* 이미지가 div 크기를 초과할 경우 숨김 처리 */
+    margin-bottom: 10px; /* 이미지와 텍스트 사이 간격 추가 */
+    border-radius: 10px; /* div 자체도 둥글게 처리 */
+    border: 1px solid #ccc; /* 얇은 회색 테두리 추가 */
+	}
 
-    .product-img img {
-        width: 100%; /* div의 너비에 맞게 이미지 크기를 조정 */
-        height: 100%; /* div의 높이에 맞게 이미지 크기를 조정 */
-        object-fit: cover; /* 이미지 비율을 유지하며 div에 맞게 자르기 */
-    }
-    .product-list {
+	.product-img img {
+    width: 100%; /* div의 너비에 맞게 이미지 크기를 조정 */
+    height: 100%; /* div의 높이에 맞게 이미지 크기를 조정 */
+    object-fit: cover; /* 이미지 비율을 유지하며 div에 맞게 자르기 */
+    border-radius: 10px; /* 이미지 모서리도 둥글게 처리 */
+    border: 1px solid #ddd; /* 이미지에 얇은 테두리 추가 */
+    box-sizing: border-box; /* 테두리 포함 크기 계산 */
+	}
+
+	.product-list {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    flex-wrap: wrap; /* 여러 줄로 쌓이도록 설정 */
+    gap: 72px; /* 이미지 사이에 간격 추가 */
     width: 100%;
-    margin: 0 auto;
-    margin-top: 40px;
-    width: 757px;
+    max-width: 750px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    margin-top: 20px;
 	}
 
-	.card-top {
+.card-top {
     margin-bottom: 40px; /* 상품 간 간격 추가 */
-	}
+}
 
-	
-	.product-desc {
+.product-desc {
     font-family: 'Roboto', sans-serif; /* 원하는 폰트로 변경 */
     color: #333; /* 기본 텍스트 색 */
-	}
+}
 
-	.prod-title {
+.prod-title,
+.pro-price,
+.cust-addr,
+.prod-category {
+    margin-bottom: 3px; /* 각 항목 사이의 간격을 10px로 통일 */
+}
+
+.product-info-container {
+    display: flex;
+    flex-direction: column; /* 수직 배치 */
+    gap: 10px; /* 항목 사이의 간격을 10px로 설정 */
+}
+
+.prod-title {
     font-size: 18px; /* 글씨 크기 */
     font-weight: normal; /* 일반 두께 */
     color: #555; /* 글씨 색상 */
     white-space: nowrap; /* 한 줄로 표시 */
     overflow: hidden; /* 넘친 글자는 숨김 */
     text-overflow: ellipsis; /* 넘친 부분에 ... 표시 */
-	}
+}
 
-	.pro-price {
+.pro-price {
     font-size: 18px; /* 가격 크기 */
     font-weight: bold; /* 가격 굵게 */
     color: #000; /* 가격 색 */
-    margin-bottom: 5px;
-	}
+    text-align: left; /* 왼쪽 정렬 */
+}
 
-	.cust-addr, .cust-category {
+.cust-addr,
+.prod-category {
     font-size: 14px; /* 주소 및 카테고리 글씨 크기 */
     color: #666; /* 주소 및 카테고리 색상 */
-    margin-bottom: 3px; /* 각 항목 사이의 간격 */
-	}
+}
 
-	/* 밑줄 제거 */
-	a.product-link {
-	text-decoration: none;
-	}
+/* 링크 밑줄 제거 */
+a.product-link {
+    text-decoration: none;
+}
 
-	
+/* 중앙 정렬 및 간격 조절 */
+.product-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 아이템을 중앙에 배치 */
+    margin-bottom: 20px; /* 각 카드 간의 간격을 설정 */
+    text-align: left; /* 텍스트는 왼쪽 정렬 */
+    padding: 10px; /* 카드 내부에 여백 추가 */
+    box-sizing: border-box; /* padding 포함하여 크기 계산 */
+    border: 1px solid #ddd; /* 카드 구분을 위한 테두리 추가 */
+    background-color: #fff; /* 카드 배경색 추가 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 카드에 살짝 그림자 추가 */
+}
 
-	
-	
+
 	</style>
 
 	<style>
@@ -5960,13 +5947,13 @@ translateY
 }
 
 #gnb-root ._1knjz49o {
-	font-weight: 700;
-	line-height: 1.4;
-	font-size: 1.4rem;
-	color: var(--seed-scale-color-gray-700);
-	font-style: normal;
-	margin-right: 3rem
-}
+			font-weight: 700;
+			line-height: 1.4;
+			font-size: 1.4rem;
+			color: var(--seed-scale-color-gray-700);
+			font-style: normal;
+			margin-right: 3rem
+		}
 
 #gnb-root ._1knjz49o:hover {
 	color: var(--seed-scale-color-gray-600)
@@ -6816,15 +6803,6 @@ translateY
 	<div id="footer-root">
 		<div class="light-theme"></div>
 	</div>
-
-
-
-
-
-
-
-	<script type="text/javascript" id="" charset="">!function (b, e, f, g, a, c, d) {b.fbq || (a = b.fbq = function () {a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)}, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))}(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "992961397411651"); fbq("set", "agent", "tmgoogletagmanager", "992961397411651"); fbq("track", "PageView");</script>
-	<script type="text/javascript" id="">!function (b, e, f, g, a, c, d) {b.fbq || (a = b.fbq = function () {a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)}, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))}(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "992961397411651"); fbq("set", "agent", "tmgoogletagmanager", "992961397411651"); fbq("track", "PageView");</script>
 	<div id="fb-root" class=" fb_reset fb_reset fb_reset fb_reset fb_reset">
 		<div
 			style="position: absolute; top: -10000px; width: 0px; height: 0px;">

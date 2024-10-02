@@ -66,4 +66,20 @@ public class ProductDAO {
         return productList;
     }
     
+    public int deletePost(int prodIdx) {
+    	SqlSession session = sqlSessionFactory.openSession();
+    	int row = 0;
+        try {
+            row = session.delete("com.smhrd.mapper.ProductMapper.deleteProductById", prodIdx);
+            System.out.println("row : "+row);
+            session.commit(); // 커밋 필수!
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return row;
+    	
+    }
+    
 }

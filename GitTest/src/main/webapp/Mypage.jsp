@@ -5347,11 +5347,12 @@ function cancelEdit() {
                         </div>
                         <div class="product-desc">
                             <h2 class="pro-title">${product.prod_name}</h2>
-                            <h3 class="pro-title">${product.cust_addr}</h3>
-                            <div class="prod-category">${product.prod_category}</div>
-                            <div class="prod-price">${product.prod_price}원</div>
                         </div>
                     </a>
+                    <form action="${pageContext.request.contextPath}/deleteProduct" method="post" onsubmit="return confirm('정말로 삭제하시겠습니까?');">
+                <input type="hidden" name="prod_idx" value="${product.prod_idx}">
+                <button type="submit" class="delete-button">삭제</button>
+            </form>
                 </article>
             </c:forEach>
         </div>

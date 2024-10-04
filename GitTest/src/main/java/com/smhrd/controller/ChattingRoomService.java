@@ -27,9 +27,13 @@ public class ChattingRoomService extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("ChattingRoomService에 도착");
+		
 		request.setCharacterEncoding("UTF-8");
 
-		String room_info = request.getParameter("room_info");
+		String room_info = request.getParameter("member");
+		
+		System.out.println("ChattingRoomService member : " + room_info);
 
 		chattingRoomDTO dto = new chattingRoomDTO();
 		chatDAO dao = new chatDAO();
@@ -38,19 +42,29 @@ public class ChattingRoomService extends HttpServlet {
 		HttpSession session = request.getSession();
 		CustomerDTO cust = (CustomerDTO) session.getAttribute("info");
 		
-		System.out.println("Cust_id : " + cust.getCust_id());
+		System.out.println("ChattingRoomService Cust_id : " + cust.getCust_id());
 
 		dto.setCust_nick(cust.getCust_nick());
 
 		if (room_info != null) {
+			
 			dto.setRoom_info(room_info);
 			dto.setCust_id(cust.getCust_id());
+			
+			System.out.println("채팅방 db에 저장하기 전 마지막 테스트 custId : " + dto.getCust_id());
+			System.out.println("채팅방 db에 저장하기 전 마지막 테스트 room_info : " + dto.getRoom_info());
+			
 			int cnt = dao.creatRoom(dto);
 			
-			if (cnt > 0) System.out.println("채팅방 생성 성공");
-			else System.out.println("채팅방 생성 실패");
+			if (cnt > 0) {
+				System.out.println("채팅방 생성 성공");
+			}
+			else {
+				System.out.println("채팅방 생성 실패");
+				
+			}
 		}
-		else System.out.println("room_info : "+room_info);
+
 		// dto에 꺼낸 아이디 넣기
 		dto.setCust_id(cust.getCust_id());
 		List<chattingRoomDTO> chatRoom = dao.chattingRoom(dto);
@@ -65,6 +79,7 @@ public class ChattingRoomService extends HttpServlet {
 		else {
 			response.sendRedirect("ChattingPage.jsp");
 		}
+		
 	}
 
 }

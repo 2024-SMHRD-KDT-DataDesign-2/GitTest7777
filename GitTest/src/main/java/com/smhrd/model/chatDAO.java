@@ -16,8 +16,6 @@ public class chatDAO {
 		List<chattingRoomDTO> chatRoom = sqlSession.selectList("chattingroom", dto);
 
 		sqlSession.close();
-		
-		System.out.println("chatRoom : " + chatRoom);
 
 		return chatRoom ;
 	}
@@ -43,7 +41,7 @@ public class chatDAO {
 
 		return chatList ;
 	}
-
+	
 	public int chatInsert(chatDTO dto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 

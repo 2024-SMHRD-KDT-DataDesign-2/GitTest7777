@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.model.chatDAO;
 import com.smhrd.model.chatDTO;
-import com.smhrd.model.chattingRoomDTO;
 import com.smhrd.model.CustomerDTO;
 
 @WebServlet("/CreateChat")

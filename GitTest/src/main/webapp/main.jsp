@@ -5204,10 +5204,6 @@ translateY
 
 
 
-			<div class="text-center article-list-more">
-				<a class="text-bold text-black text-m" id="hot-articles-more"
-					data-url="/hot_articles">매물 더 보기</a>
-			</div>
 		</section>
 
 

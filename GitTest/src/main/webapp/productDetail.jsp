@@ -190,6 +190,7 @@
 
 		<div id="article-detail">
 			<p>${product.prod_desc}</p>
+			<a href="ChattingRoomService">채팅하기</a>
 		</div>
 	</section>
 

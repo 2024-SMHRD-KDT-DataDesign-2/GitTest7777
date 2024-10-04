@@ -40,6 +40,7 @@ public class ChattingRoomService extends HttpServlet {
 		
 		System.out.println("Cust_id : " + cust.getCust_id());
 
+		dto.setCust_nick(cust.getCust_nick());
 
 		if (room_info != null) {
 			dto.setRoom_info(room_info);
@@ -49,7 +50,7 @@ public class ChattingRoomService extends HttpServlet {
 			if (cnt > 0) System.out.println("채팅방 생성 성공");
 			else System.out.println("채팅방 생성 실패");
 		}
-		
+		else System.out.println("room_info : "+room_info);
 		// dto에 꺼낸 아이디 넣기
 		dto.setCust_id(cust.getCust_id());
 		List<chattingRoomDTO> chatRoom = dao.chattingRoom(dto);

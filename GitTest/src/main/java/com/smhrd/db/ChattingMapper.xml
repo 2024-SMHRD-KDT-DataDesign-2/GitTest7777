@@ -23,7 +23,7 @@
 		select *
 		from CHATTINGS
 		where ROOM_IDX = #{room_idx}
-		order by room_idx asc
+		order by chat_idx ASC
 	</select>
 
 	<insert id="chatting" parameterType="com.smhrd.model.chatDTO">

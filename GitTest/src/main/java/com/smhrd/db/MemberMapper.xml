@@ -6,7 +6,7 @@
 	<!-- 회원가입을 위한 sql문장 작성 -->
 	<insert id="join" parameterType="com.smhrd.model.CustomerDTO">
 		insert into customers
-		values(#{cust_id},#{cust_pw},#{cust_nick},#{cust_email},#{cust_gender},#{cust_birthdate},#{cust_addr},#{cust_phone},SYSDATE,null,null)
+		values(#{cust_id},#{cust_pw},#{cust_nick},#{cust_email},#{cust_gender},#{cust_birthdate},#{cust_addr},#{cust_phone},SYSDATE,#{lat},#{lon})
 	</insert>
 
 	<!-- 로그인을 위한 sql문장 작성 -->

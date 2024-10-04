@@ -142,7 +142,7 @@
 		</form>
 
 		<!-- 회원가입 폼 -->
-		<form class="email-signup" action="JoinService" method="post">
+		<form class="email-signup" action="getLatLng" method="post">
 			<div class="scrollable-content">
 				<div class="u-form-group">
 					<input type="text" placeholder="아이디" name="cust_id" />
@@ -160,7 +160,8 @@
 					<input type="date" placeholder="생년월일" name="cust_birthdate" />
 				</div>
 				<div class="u-form-group">
-					<input type="text" placeholder="주소" name="cust_addr" />
+					<input type="text" id="address" name="cust_addr" readonly placeholder="주소검색 버튼을 눌러 주소입력" required>
+    				<button type="button" onclick="searchAddress()">주소 검색</button>
 				</div>
 				<div class="u-form-group">
 					<input type="text" placeholder="휴대전화번호" name="cust_phone" />
@@ -184,6 +185,32 @@
 			</div>
 		</form>
 	</div>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- 카카오 주소 검색 API -->
+	<script>
+	function searchAddress() {
+    	new daum.Postcode({
+        	oncomplete: function(data) {
+            	// 선택된 주소를 가져옵니다.
+            	var fullAddress = data.address; // 최종 주소 변수
+            	var extraAddress = ''; // 참고항목 변수를 선언합니다.
+
+            	// 법정동명이 있을 경우 추가합니다.
+            	if(data.addressType === 'R'){
+	                if(data.bname !== ''){
+                    	extraAddress += data.bname;
+                	}
+                	if(data.buildingName !== ''){
+	                    extraAddress += (extraAddress !== '' ? ', ' + data.buildingName : data.buildingName);
+    	            }
+                	fullAddress += (extraAddress !== '' ? ' ('+ extraAddress +')' : '');
+            	}
+	
+            	// 주소를 해당 인풋 필드에 넣습니다.
+            	document.getElementById("address").value = fullAddress;
+        	}
+	    }).open();
+	}	
+	</script>
 
 	<!-- Gender selection script -->
 	<script>

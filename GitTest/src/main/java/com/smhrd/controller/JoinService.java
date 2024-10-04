@@ -17,36 +17,40 @@ public class JoinService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		String cust_id = request.getParameter("cust_id");
-		String cust_pw = request.getParameter("cust_pw");
-		String cust_nick = request.getParameter("cust_nick");
-		String cust_email = request.getParameter("cust_email");
-		String cust_gender = request.getParameter("cust_gender");
-		String cust_birthdate = request.getParameter("cust_birthdate");
-		String cust_addr = request.getParameter("cust_addr");
-		String cust_phone = request.getParameter("cust_phone");
-//		String joined_at = request.getParameter("joined_at");
-//		double lat = (double)request.getParameter("lat");
-//		double lon = (double)request.getParameter("lon");
+	        throws ServletException, IOException {
+	    request.setCharacterEncoding("UTF-8");
+	    String cust_id = (String) request.getAttribute("cust_id");
+	    String cust_pw = (String) request.getAttribute("cust_pw");
+	    String cust_nick = (String) request.getAttribute("cust_nick");
+	    String cust_email = (String) request.getAttribute("cust_email");
+	    String cust_gender = (String) request.getAttribute("cust_gender");
+	    String cust_birthdate = (String) request.getAttribute("cust_birthdate");
+	    String cust_addr = (String) request.getAttribute("cust_addr");
+	    String cust_phone = (String) request.getAttribute("cust_phone");
+	    System.out.println(cust_phone);
 
-		CustomerDTO dto = new CustomerDTO(cust_id, cust_pw, cust_nick, cust_email, cust_gender, cust_birthdate,
-				cust_addr, cust_phone);
-		CustomerDAO dao = new CustomerDAO();
-		int result = dao.join(dto);
+	    // getAttribute()로 lat과 lon 값을 받아옵니다.
+	    double lat = Double.parseDouble((String) request.getAttribute("lat"));
+	    double lon = Double.parseDouble((String) request.getAttribute("lon"));
+	    System.out.println(lat);
 
-		if (result == 1) {
-			// 회원가입 성공! -> 회원가입한 email 값을 가지고 페이지 이동
-			request.setAttribute("cust_id", cust_id);
+	    CustomerDTO dto = new CustomerDTO(cust_id, cust_pw, cust_nick, cust_email, cust_gender, cust_birthdate,
+	            cust_addr, cust_phone, lat, lon);
+	    CustomerDAO dao = new CustomerDAO();
 
-			RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
-			rd.forward(request, response);
-		} else {
-			// 회원가입 실패!
-			response.sendRedirect("LoginJoin.jsp");
-		}
+	    System.out.println("있니?" + cust_id);
 
+	    int result = dao.join(dto);
+
+	    if (result == 1) {
+	        // 회원가입 성공! -> 회원가입한 email 값을 가지고 페이지 이동
+	        request.setAttribute("cust_id", cust_id);
+
+	        RequestDispatcher rd = request.getRequestDispatcher("LoginJoin.html");
+	        rd.forward(request, response);
+	    } else {
+	        // 회원가입 실패!
+	        response.sendRedirect("LoginJoin.jsp");
+	    }
 	}
-
 }

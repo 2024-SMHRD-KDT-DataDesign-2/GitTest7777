@@ -43,8 +43,8 @@ public class AddProductService extends HttpServlet {
             String prodCategory = request.getParameter("transaction");
 
             // 파일 업로드 처리
-            //String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
-            String uploadPath = "C:\\Users\\smhrd\\git\\GitTest7777\\GitTest\\src\\main\\webapp\\uploads";
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
+            //String uploadPath = "C:\\Users\\smhrd\\git\\GitTest7777\\GitTest\\src\\main\\webapp\\uploads";
 
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) uploadDir.mkdir(); // 업로드 폴더가 없으면 생성

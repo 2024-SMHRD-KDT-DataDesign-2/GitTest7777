@@ -28,6 +28,6 @@ public class CustomerDTO {
     private String cust_addr;
     private String cust_phone;
 //    private String joined_at;
-//    private Double lat;
-//    private Double lon;
+    private double lat;
+    private double lon;
 }

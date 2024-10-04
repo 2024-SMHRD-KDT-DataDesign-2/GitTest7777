@@ -35,7 +35,7 @@
 			<version>1.18.34</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- 5. 파일 업로드를 위한 cos.jar 로딩 -->
 		<!-- https://mvnrepository.com/artifact/servlets.com/cos -->
 		<dependency>
@@ -43,7 +43,11 @@
 			<artifactId>cos</artifactId>
 			<version>05Nov2002</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20210307</version>
+		</dependency>
 
 	</dependencies>
 

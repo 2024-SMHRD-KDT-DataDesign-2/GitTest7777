@@ -27,7 +27,4 @@
 		cust_nick=#{cust_nick} where cust_id=#{cust_id}
 	</update>
 
-
-
-
 </mapper>

@@ -22,6 +22,7 @@
   <mappers>
     <mapper resource="com/smhrd/db/MemberMapper.xml"/>
     <mapper resource="com/smhrd/db/ProductMapper.xml"/>
+    <mapper resource="com/smhrd/db/SafePlaceMapper.xml"/>
   </mappers>
   
 </configuration>

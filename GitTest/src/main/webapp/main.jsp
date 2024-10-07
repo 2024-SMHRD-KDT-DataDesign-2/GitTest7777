@@ -5071,8 +5071,11 @@ translateY
 									alt="이미지 준비중입니다." width="46px" height="46px"></a></li>
 							<li class="_1knjz49n"><a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.do">중고거래</a></li>
-								<li class="_1knjz49n"><a
+								<li class="_1knjz49n">
+								<c:if test="${info!=null}">
+								<a
 								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="SafeSpot">SafeSpot 찾기</a></li>
+								</c:if>
 						</ul>
 					</nav>
 					<div class="_1s38h9c1 _1s38h9c0">

@@ -5169,69 +5169,45 @@ body {
 	text-align: center;
 	color: #999;
 }
+
 </style>
 </head>
 
 <body class="hoian-kr">
-
-	<script type="text/javascript" id="" charset="">!function (b, e, f, g, a, c, d) {b.fbq || (a = b.fbq = function () {a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)}, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))}(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "992961397411651"); fbq("set", "agent", "tmgoogletagmanager", "992961397411651"); fbq("track", "PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none" alt="facebook"
-			src="https://www.facebook.com/tr?id=992961397411651&ev=PageView&noscript=1" />
-	</noscript>
-
-
-
-
 	<div id="gnb-root">
 		<div class="light-theme">
 			<div class="_1knjz490">
 				<div class="_1knjz491 _1s38h9c0">
-					<a class="_1knjz492" href="https://www.daangn.com"><span></span></a>
 					<nav class="_1knjz49j _1s38h9c0">
 						<ul class="_1knjz49j _1s38h9c5">
-							<li class="_1knjz49n"><a href="#"><img
-									class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" src="./로고.png"
-									alt="이미지 준비중입니다." width="46px" height="46px"></a></li>
-							<li class="_1knjz49n"><a
-								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.do">중고거래</a></li>
-							<li class="_1knjz49n"><a
-								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="board.jsp">자유
-									게시판</a></li>
-									<li class="_1knjz49n"><a
-								class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="#">SafeSpot 찾기</a></li>
+							<li class="_1knjz49n">
+								<a href="main.do"><img class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" src="./로고.png" alt="이미지 준비중입니다." width="46px" height="46px"></a>
+							</li>
+							<li class="_1knjz49n"><a class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="main.do">중고거래</a></li>
+							<li class="_1knjz49n">
+								<c:if test="${info!=null}">
+									<a class="_1knjz49o _1s38h9c4 _1s38h9c2 undefined" href="SafeSpot">SafeSpot 찾기</a>
+								</c:if>
+							</li>
 						</ul>
 					</nav>
 					<div class="_1s38h9c1 _1s38h9c0">
-						<span><button
-								class="_1knjz496 _1s38h9c3 _1s38h9c0 _1s38h9c2">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M3.5999 10.5C3.5999 6.68926 6.68914 3.60002 10.4999 3.60002C14.3107 3.60002 17.3999 6.68926 17.3999 10.5C17.3999 14.3108 14.3107 17.4 10.4999 17.4C6.68914 17.4 3.5999 14.3108   3.5999 10.5ZM10.4999 2.40002C6.0264 2.40002 2.3999 6.02652 2.3999 10.5C2.3999 14.9735 6.0264 18.6 10.4999 18.6C12.5207 18.6 14.3687 17.86 15.7876 16.6362L20.5756 21.4243C20.81 21.6586 21.1899 21.6586 21.4242 21.4243C21.6585 21.19 21.6585 20.8101 21.4242 20.5758L16.6361 15.7877C17.8599 14.3688 18.5999 12.5208 18.5999 10.5C18.5999 6.02652 14.9734 2.40002 10.4999 2.40002Z"
-										fill="#212124"></path>
-								</svg>
-							</button>
-							<form action="Search" novalidate="" class="_1knjz498" style="display: flex; flex-direction: column;">
-								<input type="search" class="_1knjz49a" placeholder="물품을 검색하세요."
-									name="search">
-									<button type="submit"
-								class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-								style="margin-right: 50px;" onclick="window.location.href='Search'">
-								검색
-								</button>
-							</form> </span>
-							<span>
-								<span><c:if
-								test="${info!=null}">
-								<button type="button"
-									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-									style="margin-right: 50px;"
-									onclick="location.href='addboard.html'">물품 등록</button>
-							</c:if></span> <span><button
-								class="_1knjz495 _1s38h9c3 _1s38h9c0 _1s38h9c2">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
+						<span>
+													
+							<form action="Search" novalidate="" class="_1knjz498 search-form">
+								<input type="search" class="_1knjz49a" placeholder="물품을 검색하세요." name="search">
+								<button type="submit" class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"style="margin-right: 50px;" onclick="window.location.href='Search'">검색</button>
+							</form>						
+						</span>
+							<span class="user-buttons">
+								<span>
+								<c:if test="${info!=null}">
+									<button type="button" class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i" style="margin-right: 50px;" onclick="location.href='AddProduct.jsp'">물품 등록</button>
+								</c:if>
+								</span> 
+								<span>
+								<button class="_1knjz495 _1s38h9c3 _1s38h9c0 _1s38h9c2">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path fill-rule="evenodd" clip-rule="evenodd"
 										d="M3 5.00002C3 4.66865 3.26863 4.40002 3.6 4.40002H20.4C20.7314 4.40002 21 4.66865 21 5.00002C21 5.3314 20.7314 5.60002 20.4 5.60002H3.6C3.26863 5.60002 3 5.3314 3 5.00002Z"
 										fill="#212124"></path>
@@ -5242,15 +5218,17 @@ body {
 										d="M3 19C3 18.6687 3.26863 18.4 3.6 18.4H20.4C20.7314 18.4 21 18.6687 21 19C21 19.3314 20.7314 19.6 20.4 19.6H3.6C3.26863 19.6 3 19.3314 3 19Z"
 										fill="#212124"></path>
 								</svg>
-							</button> <c:if test="${info==null}">
+								</button> 
+								<c:if test="${info==null}">
 								<button type="button"
 									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
 									onclick="location.href='LoginJoin.html'">로그인</button>
-							</c:if> <c:if test="${info !=null}">
-								<button type="button"
-									class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i"
-									onclick="window.location.href='LogoutService'">로그아웃</button>
-							</c:if> </span>
+								</c:if> 
+								<c:if test="${info !=null}">
+								<button type="button" class="karrot-button r14vym0 _1s38h9c3 _1s38h9c4 r14vym4 r14vym7 _1knjz49i" onclick="window.location.href='LogoutService'">로그아웃</button>
+								</c:if> 
+								</span>
+							</span>
 					</div>
 				</div>
 			</div>
@@ -5334,7 +5312,7 @@ function cancelEdit() {
         
         <!-- Section 3: Product Section -->
         <div class="product-section">
-            <h3>상품 0</h3> <!-- Product title and count -->
+            <h3>내 상품 0</h3> <!-- Product title and count -->
         </div>
         
         <!-- Empty Products Area -->
@@ -5387,12 +5365,6 @@ function cancelEdit() {
 	}
 	
 	</style>
-	
-	<script>
-		//<![CDATA[
-		facebookClickEvent("ViewContent");
-		//]]>
-	</script>
 
 	<style>
 #gnb-root .light-theme {
@@ -5906,7 +5878,11 @@ function cancelEdit() {
 }
 
 #gnb-root ._1knjz498 {
-	display: none
+	display: inline-flex; /* 다른 버튼과 수평 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    margin-right: 1.2rem; /* 우측 여백 */
+    padding: 10px 20px; /* 여백 설정 */
+    border-radius: 5px; /* 둥근 모서리 */
 }
 
 #gnb-root ._1knjz499 {
@@ -5993,10 +5969,6 @@ function cancelEdit() {
 	font-size: 1.6rem
 }
 
-#gnb-root ._1knjz49j {
-	display: none
-}
-
 #gnb-root ._1knjz49k {
 	font-weight: 700;
 	line-height: 1.42;
@@ -6032,11 +6004,17 @@ function cancelEdit() {
 }
 
 #gnb-root ._1knjz49o {
-	font-weight: 700;
-	line-height: 1.4;
+	display: inline-block;
+    line-height: 1.4;
 	font-size: 1.4rem;
 	color: var(--seed-scale-color-gray-700);
 	font-style: normal;
+    margin: 0 auto;
+    white-space: nowrap; /* 줄 바꿈 방지 */
+}
+
+#gnb-root ._1knjz49o {
+	font-weight: 700;
 	margin-right: 3rem
 }
 
@@ -6209,7 +6187,7 @@ function cancelEdit() {
 	}
 	#gnb-root ._1knjz49o, #gnb-root ._1knjz49r, #gnb-root ._1knjz49t {
 		line-height: 1.32;
-		font-size: 1.2rem;
+		font-size: 1.8rem;
 		letter-spacing: -2%
 	}
 	#gnb-root ._1knjz49u {
@@ -6221,11 +6199,7 @@ function cancelEdit() {
 	#gnb-root ._1knjz496, #gnb-root ._1knjz497 {
 		display: none
 	}
-	#gnb-root ._1knjz498 {
-		display: block;
-		position: relative;
-		margin-right: 1.2rem
-	}
+
 	#gnb-root ._1knjz499 {
 		display: none
 	}
@@ -6884,16 +6858,26 @@ function cancelEdit() {
 		grid-row: 1/2
 	}
 }
+
+	/* 검색 입력란과 검색 버튼 사이 간격 조정 */
+    .search-form input {
+        margin-right: 10px; /* 검색 입력란과 버튼 사이의 간격 */
+    }
+     /* 마이페이지와 로그아웃 버튼을 가로로 배치 */
+    .user-buttons {
+        display: flex;
+        gap: 10px; /* 두 버튼 사이의 간격을 설정 */
+    }
+
+    /* 필요 시 버튼 정렬 조정 */
+    .user-buttons button {
+        display: inline-block;
+    }
+    
 </style>
 	<div id="footer-root">
 		<div class="light-theme"></div>
 	</div>
-
-
-
-
-
-
 
 	<script type="text/javascript" id="" charset="">!function (b, e, f, g, a, c, d) {b.fbq || (a = b.fbq = function () {a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)}, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))}(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "992961397411651"); fbq("set", "agent", "tmgoogletagmanager", "992961397411651"); fbq("track", "PageView");</script>
 	<script type="text/javascript" id="">!function (b, e, f, g, a, c, d) {b.fbq || (a = b.fbq = function () {a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)}, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))}(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "992961397411651"); fbq("set", "agent", "tmgoogletagmanager", "992961397411651"); fbq("track", "PageView");</script>

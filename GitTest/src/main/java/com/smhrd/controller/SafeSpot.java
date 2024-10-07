@@ -30,7 +30,6 @@ public class SafeSpot extends HttpServlet {
     	request.setAttribute("safePlaces", safePlaces);
  
         // JSP 페이지로 포워딩
-        //request.getRequestDispatcher("SafeSpot.jsp").forward(request, response);
     	request.getRequestDispatcher("exsafespot.jsp").forward(request, response);
 	}
 

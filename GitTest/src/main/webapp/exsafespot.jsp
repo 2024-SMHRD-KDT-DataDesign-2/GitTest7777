@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>위도/경도로 거리 계산하기</title>
+    <title>SafeSpot 찾기</title>
     <style>
 .dot {overflow:hidden;float:left;width:12px;height:12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
 .dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<div id="map" style="width:100%;height:800px;"></div>  
+<div id="map" style="width:100%;height:930px;"></div>  
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=289b7971840bca87f7aa75f2ddc1f413"></script>
 <script>

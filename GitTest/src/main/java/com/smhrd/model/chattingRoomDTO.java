@@ -19,6 +19,5 @@ public class chattingRoomDTO {
 	private String created_at ;
 	private String room_limits ;
 	private String room_status ;
-	
 	private String cust_nick ;
 }

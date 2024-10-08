@@ -191,7 +191,7 @@
 
 		<div id="article-detail">
 			<p>${product.prod_desc}</p>
-			<a href="ChattingRoomService">채팅하기</a>
+			<a href="${pageContext.request.contextPath}/ChattingRoomService?product_idx=${product.prod_idx}"><button>채팅하기</button></a>
 		</div>
 	</section>
 

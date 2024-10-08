@@ -28,11 +28,21 @@ public class ChattingRoomService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("ChattingRoomService에 도착");
-		
+
 		request.setCharacterEncoding("UTF-8");
+		
+		String productIdx = request.getParameter("product_idx");
+	       if (productIdx != null) {
+	           System.out.println("Product ID: " + productIdx);
+	           // 여기서 productIdx를 이용한 추가 로직을 작성할 수 있음
+	       } else {
+	           // product_idx 값이 없을 경우 400 에러 처리
+	           response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid product ID");
+	           return; // 이후 로직을 실행하지 않기 위해 return
+	       }
 
 		String room_info = request.getParameter("member");
-		
+
 		System.out.println("ChattingRoomService member : " + room_info);
 
 		chattingRoomDTO dto = new chattingRoomDTO();
@@ -41,27 +51,26 @@ public class ChattingRoomService extends HttpServlet {
 		// 세션에서 아이디 꺼내오기
 		HttpSession session = request.getSession();
 		CustomerDTO cust = (CustomerDTO) session.getAttribute("info");
-		
+
 		System.out.println("ChattingRoomService Cust_id : " + cust.getCust_id());
 
 		dto.setCust_nick(cust.getCust_nick());
 
 		if (room_info != null) {
-			
+
 			dto.setRoom_info(room_info);
 			dto.setCust_id(cust.getCust_id());
-			
-			System.out.println("채팅방 db에 저장하기 전 마지막 테스트 custId : " + dto.getCust_id());
+
+			System.out.println("채팅방 db에 저장하기 전 마지막 테스트 CustId : " + dto.getCust_id());
 			System.out.println("채팅방 db에 저장하기 전 마지막 테스트 room_info : " + dto.getRoom_info());
-			
+
 			int cnt = dao.creatRoom(dto);
-			
+
 			if (cnt > 0) {
 				System.out.println("채팅방 생성 성공");
-			}
-			else {
+			} else {
 				System.out.println("채팅방 생성 실패");
-				
+
 			}
 		}
 
@@ -75,11 +84,10 @@ public class ChattingRoomService extends HttpServlet {
 
 			RequestDispatcher rd = request.getRequestDispatcher("ChattingPage.jsp");
 			rd.forward(request, response);
-		} 
-		else {
+		} else {
 			response.sendRedirect("ChattingPage.jsp");
 		}
-		
+
 	}
 
 }

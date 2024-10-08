@@ -9,10 +9,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
-
-
 <title>당신 근처의 SafeSpot</title>
+
 <meta name="description"
 	content="중고 거래부터 동네 정보까지, 이웃과 함께해요. 가깝고 따뜻한 당신의 근처를 만들어요.">
 <link rel="author" href="SafeSpot">
